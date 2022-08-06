@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
+<!-- #css読込 -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <head>
     <title>ハンバーガー大学</title>
 </head>
@@ -7,7 +9,8 @@
 
 <div class="page">
     <div class="heading">
-        <h1>シンプル1000円</h1>
+        <h1>ハンバーガー大学🍔</h1>
+        <h2>{{ date }}</h2>
     </div>
     <div class="1000btn">
         <a href="/menu/get1000", class="btn">シンプルコース(1000円)</a>
@@ -16,19 +19,48 @@
         <a href="/menu/get2000", class="btn">一日分コース(2000円)</a>
     </div>
     <div class="3000btn">
-        <a href="/menu/get3000", class="btn">ドカ食い気絶コース(3000円)</a>
+        <a href="/menu/get3000" class="btn">ドカ食い気絶コース(3000円)</a>
     </div>
     <div class="result">
         {% for select in selected %}
-        <div class="selected menu">
+        <div class="selected-menu">
+            {% if select.id >= 91 %}
+            <div class="img"><img src="../static/img/set.png" height="100" width="100"></div>
+            <h2>{{ select.name }}</h2>
+            <p>{{ select.price }}円</p>
+            {% elif select.id <= 17 %}
+            <div class="img"><img src="../static/img/food_hamburger.png" height="100" width="100"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円, {{ select.cal }}kcal</p>
+            {% elif 18 <= select.id <= 28 %}
+            <div class="img"><img src="../static/img/food_frenchfry.png" height="100" width="80"></div>
+            <h2>{{ select.name }}</h2>
+            <p>{{ select.price }}円, {{ select.cal }}kcal</p>
+            {% elif 29 <= select.id <= 73 %}
+            <div class="img"><img src="../static/img/drink_coffee_cream_none.png" height="100" width="80"></div>
+            <h2>{{ select.name }}</h2>
+            <p>{{ select.price }}円, {{ select.cal }}kcal</p>
+            {% elif 74 <= select.id <= 90 %}
+            <div class="img"><img src="../static/img/sweets_sundae_brown.png" height="100" width="80"></div>
+            <h2>{{ select.name }}</h2>
+            <p>{{ select.price }}円, {{ select.cal }}kcal</p>
+            {% endif %}
         </div>
-        {% else %}
         {% endfor %}
-        <h3>合計{{ total_price }}円, {{ total_cal }}kcal</h3>
+        <div class="set-menu">
+            {% if set_menu %}
+            <div class="containts">
+                <h2>セット内容</h2>
+                {% for set in set_menu %}
+                <p>{{ set.name }}, {{ set.cal }}kcal</p>
+            {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="total">
+            <h3>合計{{ total_price }}円, {{ total_cal }}kcal</h3>
+        </div>
     </div>
 </div>
-
 </body>
 </html>

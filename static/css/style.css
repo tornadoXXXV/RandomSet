@@ -1,0 +1,50 @@
+html {
+    font-family: sans-serif;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(255, 46, 46);
+}
+
+.page {
+    text-align: center;
+    color: rgb(255, 252, 65);
+}
+
+.selected-menu {
+    width: 800px;
+    margin: 15px auto 10px auto;
+    border: 10px solid rgb(255, 252, 65);
+}
+
+.selected-menu h2 {
+    font-size: 1.5em;
+}
+
+.selected-menu p {
+    font-size: 1.5em;
+}
+
+.img {
+    float: left;
+}
+
+.containts {
+    text-align: center;
+    width: 800px;
+    margin: 15px auto 10px auto;
+    border: 5px solid rgb(255, 252, 65);
+}
+
+.containts h2 {
+    font-size: 1.5em;
+    border-bottom: 5px dotted rgb(255, 252, 65);
+}
+
+.containts p {
+    font-size: 1em;
+}
