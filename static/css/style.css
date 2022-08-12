@@ -46,6 +46,10 @@ body {
     margin: 15px 15px 10px 10px;
 }
 
+.about {
+    margin: 15px auto 15px auto;
+}
+
 .btn a {
     display       : inline-block;
     margin: 5px 5px 5px 5px;
@@ -107,4 +111,84 @@ background    : rgb(255, 46, 46);     /* 文字色     */
 .nf404 {
     text-align: center;
     font-size: 3em;
+}
+
+.annotation {
+    margin: 16px auto;
+	text-align: center;
+}
+
+ul {
+    width: fit-content;
+    margin: auto;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px){
+    .heading h1 {
+        font-size: 1.5em;
+    }
+    .heading h2 {
+        font-size: 1em;
+    }
+
+    .encount h2 {
+        font-size: 1em;
+    }
+
+    .img-wa img {
+        height: 100px;
+        width: 150px;
+    }
+
+    .btn a {
+        font-size: 15px;
+    }
+
+    .selected-menu {
+        width: 300px;
+        border: 5px solid rgb(255, 252, 65);
+    }
+    .selected-menu img {
+        float: left;
+        height: 40px;
+        width: 30px;
+    }
+    .selected-menu h2 {
+        font-size: 1em;
+    }
+    .selected-menu p {
+        font-size: 0.5em;
+    }
+
+    .containts {
+        width: 300px;
+        border: 2.5px solid rgb(255, 252, 65);
+    }
+    .containts h2 {
+        font-size: 1em;
+    }
+    .containts p {
+        font-size: 0.5em;
+    }
+
+    .total {
+        font-size: 1em;
+    }
+
+    .annotation {
+        width: 350px;
+        text-align: left;
+    }
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    .nf404 {
+        font-size: 1em;
+    }
 }

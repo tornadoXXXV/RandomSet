@@ -19,6 +19,12 @@ def show_menus():
     WeekOrHoli = isBizDay(Ymd)
     return render_template('index.html', date=date, HM=HM, WeekOrHoli=WeekOrHoli)
 
+@menu_blueprint.route('/about')
+def about():
+    now = datetime.datetime.now()
+    date = now.strftime('%Y年%m月%d日 %H:%M（%a）')
+    return render_template('about.html', date=date)
+
 @menu_blueprint.route('/get/<max_price>', methods=['GET'])
 def random_select_handler(max_price):
     max = int(max_price)

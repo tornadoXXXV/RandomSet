@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>マクドナルド　注文ガチャ</title>
+</head>
+
+<div class="page">
+    <div class="heading">
+        <h1>🍔マクドナルド　注文ガチャ🍔</h1>
+        <h2>{{ date }}</h2>
+    </div>
+    <div class="annotation">
+        <ul>
+            <li>5時～10時29分は朝マックのメニューが抽選対象です</li>
+            <li>平日の10時30分～16時59は一部セットが安くなります</li>
+            <li>17時～4時59分は夜マックとして、倍バーガーが抽選対象に入ります</li>
+            <li>すべての店舗が上記の通りとは限りません</li>
+            <li>セットが抽選で選ばれた場合、追加料金なしで選択できるドリンクとサイドがセット内容としてランダムで選ばれます</li>
+            <li>期間限定メニュー、ハッピーセット、マックカフェは抽選対象外です</li>
+            <li>非公式です</li>
+        </ul>
+    </div>
+    <a href="/menu">🍔戻る</a>
+</div>
+</html>

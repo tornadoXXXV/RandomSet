@@ -1,7 +1,0 @@
-postgres 設定
-
-pgAdmin4でdatabase()右クリック -> CREATE
-vscode ターミナルで [psql -U postgres]
-[\c DB名]でDBにアクセス
-[CREATE TABLE table名]でテーブル作成
-[\copy table名 from 'file名.csv' csv header]でcsvからテーブルにデータ登録可能
