@@ -1,0 +1,194 @@
+html {
+    font-family: sans-serif;
+}
+
+html * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 46, 46);
+    -webkit-text-size-adjust: 100%;
+}
+
+.page {
+    text-align: center;
+    color: rgb(255, 252, 65);
+}
+
+.heading h1 {
+    font-size: 3em;
+}
+
+.lunch {
+    background-image: linear-gradient(0deg, #b8751e 0%, #ffce08 37%, #fefeb2 47%, #fafad6 50%, #fefeb2 53%, #e1ce08 63%, #b8751e 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.5em;
+}
+
+.night {
+    background-image: linear-gradient(0deg, #000000 0%, #291c2c 37%, #2e2e25 47%, #666665 50%, #572254 53%, #2b2a1e 63%, #07098a 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.5em;
+}
+
+.morning {
+    background-image: linear-gradient(0deg, #44b2f1 0%, #1d608d 37%, #55517a 47%, #c2c1e7 50%, #5874c0 53%, #4c54c0 63%, #21bfe7 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.5em;
+}
+
+.image-wa {
+    display: inline-block;
+    margin: 15px 15px 10px 10px;
+}
+
+.about {
+    margin: 15px auto 15px auto;
+}
+
+.btn a {
+    display       : inline-block;
+    margin: 5px 5px 5px 5px;
+    border-radius : 20%;          /* 角丸       */
+    font-size     : 21pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 12px 12px;   /* 余白       */
+    background    : rgb(255, 252, 65);     /* 背景色     */
+    color         : rgb(255, 46, 46);     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    border        : 2px solid #ffffff;    /* 枠の指定 */
+  }
+
+.btn a:hover {
+color         : #ffffff;     /* 背景色     */
+background    : rgb(255, 46, 46);     /* 文字色     */
+}
+
+.selected-menu {
+    width: 800px;
+    margin: 15px auto 10px auto;
+    border: 10px solid rgb(255, 252, 65);
+}
+
+.selected-menu h2 {
+    font-size: 2em;
+}
+
+.selected-menu p {
+    font-size: 2em;
+}
+
+.img {
+    float: left;
+}
+
+.containts {
+    text-align: center;
+    width: 800px;
+    margin: 15px auto 10px auto;
+    border: 5px solid rgb(255, 252, 65);
+}
+
+.containts h2 {
+    font-size: 2em;
+    border-bottom: 5px dotted rgb(255, 252, 65);
+}
+
+.containts p {
+    font-size: 2em;
+}
+
+.total {
+    font-size: 2em;
+}
+
+.nf404 {
+    text-align: center;
+    font-size: 3em;
+}
+
+.annotation {
+    margin: 16px auto;
+	text-align: center;
+}
+
+ul {
+    width: fit-content;
+    margin: auto;
+}
+
+li {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px){
+    .heading h1 {
+        font-size: 1.5em;
+    }
+    .heading h2 {
+        font-size: 1em;
+    }
+
+    .encount h2 {
+        font-size: 1em;
+    }
+
+    .img-wa img {
+        height: 100px;
+        width: 150px;
+    }
+
+    .btn a {
+        font-size: 15px;
+    }
+
+    .selected-menu {
+        width: 300px;
+        border: 5px solid rgb(255, 252, 65);
+    }
+    .selected-menu img {
+        float: left;
+        height: 40px;
+        width: 30px;
+    }
+    .selected-menu h2 {
+        font-size: 1em;
+    }
+    .selected-menu p {
+        font-size: 0.5em;
+    }
+
+    .containts {
+        width: 300px;
+        border: 2.5px solid rgb(255, 252, 65);
+    }
+    .containts h2 {
+        font-size: 1em;
+    }
+    .containts p {
+        font-size: 0.5em;
+    }
+
+    .total {
+        font-size: 1em;
+    }
+
+    .annotation {
+        width: 350px;
+        text-align: left;
+    }
+    ul li {
+        margin-bottom: 10px;
+    }
+
+    .nf404 {
+        font-size: 1em;
+    }
+}
