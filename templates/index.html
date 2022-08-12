@@ -3,45 +3,51 @@
 <!-- #css読込 -->
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <head>
-    <title>ハンバーガー大学</title>
+    <title>マクドナルド　注文ガチャ</title>
 </head>
 <body>
 
 <div class="page">
     <div class="heading">
-        <h1>ハンバーガー大学🍔</h1>
+        <h1>🍔マクドナルド　注文ガチャ🍔</h1>
         <h2>{{ date }}</h2>
     </div>
-    <div class="1000btn">
-        <a href="/menu/get1000", class="btn">シンプルコース(1000円)</a>
-    </div>
-    <div class="2000btn">
-        <a href="/menu/get2000", class="btn">一日分コース(2000円)</a>
-    </div>
-    <div class="3000btn">
-        <a href="/menu/get3000" class="btn">ドカ食い気絶コース(3000円)</a>
+    {% if WeekOrHoli == 1 and 1030 <= HM < 1400 %}
+    <div class="lunch"><h2>現在昼マック！！特定のセットが減額中！！</h2></div>
+    <figure class="img-wa"><img src="/static/img/お得虫.png" height="200" width="300"></figure>
+    {% elif 1700 <= HM <= 2359 or 0 <= HM <= 459 %}
+    <div class="night"><h2>現在夜マック！！倍バーガーも抽選対象！！</h2></div>
+    <figure class="img-wa"><img src="/static/img/夜マック虫.png" height="200" width="300"></figure>
+    {% elif 500 <= HM < 1030 %}
+    <div class="morning"><h2>現在朝マック実施中！！</h2></div>
+    <figure class="img-wa"><img src="/static/img/朝マック虫.png" height="200" width="300"></figure>
+    {% endif %}
+    <div class="btn">
+        <a href="/menu/get/1000", class="1000btn"><b>シンプルコース(1000円)</b></a>
+        <a href="/menu/get/2000", class="2000btn"><b>一日分コース(2000円)</b></a>
+        <a href="/menu/get/3000", class="3000btn"><b>ドカ食い気絶コース(3000円)</b></a>
     </div>
     <div class="result">
         {% for select in selected %}
         <div class="selected-menu">
-            {% if select.id >= 91 %}
-            <div class="img"><img src="../static/img/set.png" height="100" width="100"></div>
+            {% if 91 <= select.id <= 104 or 126 <= select.id <= 138 or 156 <= select.id %}
+            <div class="img"><img src="/static/img/set.png" height="100" width="100"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円</p>
-            {% elif select.id <= 17 %}
-            <div class="img"><img src="../static/img/food_hamburger.png" height="100" width="100"></div>
+            {% elif select.id <= 17 or 105 <= select.id <= 117 or 139 <= select.id <= 153 %}
+            <div class="img"><img src="/static/img/food_hamburger.png" height="100" width="100"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円, {{ select.cal }}kcal</p>
-            {% elif 18 <= select.id <= 28 %}
-            <div class="img"><img src="../static/img/food_frenchfry.png" height="100" width="80"></div>
+            {% elif 18 <= select.id <= 28 or 118 <= select.id <= 125 or 154 <= select.id <= 155 %}
+            <div class="img"><img src="/static/img/food_frenchfry.png" height="100" width="80"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円, {{ select.cal }}kcal</p>
             {% elif 29 <= select.id <= 73 %}
-            <div class="img"><img src="../static/img/drink_coffee_cream_none.png" height="100" width="80"></div>
+            <div class="img"><img src="/static/img/drink_coffee_cream_none.png" height="100" width="80"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円, {{ select.cal }}kcal</p>
             {% elif 74 <= select.id <= 90 %}
-            <div class="img"><img src="../static/img/sweets_sundae_brown.png" height="100" width="80"></div>
+            <div class="img"><img src="/static/img/sweets_sundae_brown.png" height="100" width="80"></div>
             <h2>{{ select.name }}</h2>
             <p>{{ select.price }}円, {{ select.cal }}kcal</p>
             {% endif %}
