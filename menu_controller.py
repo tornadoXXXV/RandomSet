@@ -3,14 +3,11 @@ from flask.blueprints import Blueprint
 from sqlalchemy import or_, and_
 import random
 import datetime
-import jpholiday
 from models.models import *
-from db import db
+from db import db, app
 from sub import isBizDay
 
-menu_blueprint = Blueprint('menu', __name__, url_prefix="/menu")
-
-@menu_blueprint.route('/')
+@app.route('/')
 def show_menus():
     now = datetime.datetime.now()
     date = now.strftime('%Y年%m月%d日 %H:%M（%a）')
@@ -19,13 +16,13 @@ def show_menus():
     WeekOrHoli = isBizDay(Ymd)
     return render_template('index.html', date=date, HM=HM, WeekOrHoli=WeekOrHoli)
 
-@menu_blueprint.route('/about')
+@app.route('/about')
 def about():
     now = datetime.datetime.now()
     date = now.strftime('%Y年%m月%d日 %H:%M（%a）')
     return render_template('about.html', date=date)
 
-@menu_blueprint.route('/get/<max_price>', methods=['GET'])
+@app.route('/get/<max_price>', methods=['GET'])
 def random_select_handler(max_price):
     max = int(max_price)
     if max == 1000 or max == 2000 or max == 3000:
@@ -132,3 +129,7 @@ def random_select_handler(max_price):
         return render_template('index.html', date=date, WeekOrHoli=WeekOrHoli, HM=HM, selected=selected, set_menu=set_menu, total_price=total_price, total_cal=total_cal)
     else:
         return render_template('404.html'), 404
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html')
