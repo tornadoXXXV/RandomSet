@@ -4,7 +4,7 @@ from db import init_db
 from db import app
 import menu_controller
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL') or 'postgresql://{user}:{password}@{host}/{name}'.format(**{
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI') or 'postgresql://{user}:{password}@{host}/{name}'.format(**{
     'user': os.getenv('DB_USER'),
     'password': os.getenv('DB_PASSWORD'),
     'host': os.getenv('DB_HOST'),
