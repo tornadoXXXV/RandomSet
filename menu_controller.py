@@ -1,4 +1,4 @@
-from flask import request, jsonify, render_template
+from flask import render_template, send_from_directory
 from flask.blueprints import Blueprint
 from sqlalchemy import or_, and_
 import random
@@ -6,6 +6,7 @@ import datetime
 from models.models import *
 from db import db, app
 from sub import isBizDay
+import os
 
 @app.route('/')
 def show_menus():
@@ -24,8 +25,8 @@ def about():
 
 @app.route('/get/<max_price>', methods=['GET'])
 def random_select_handler(max_price):
-    max = int(max_price)
-    if max == 1000 or max == 2000 or max == 3000:
+    if max_price == "1000" or max_price == "2000" or max_price == "3000":
+        max = int(max_price)
         total_price = 0
         total_cal = 0
         selected = []
