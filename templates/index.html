@@ -11,7 +11,7 @@
     <title>マクドナルド　注文ガチャ</title>
 </head>
 <body>
-
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <div class="page">
     <div class="heading">
         <h1>🍔マクドナルド　注文ガチャ🍔</h1>
@@ -76,6 +76,9 @@
             <h3>合計{{ total_price }}円, {{ total_cal }}kcal</h3>
             {% endif %}
         </div>
+    </div>
+    <div class="twitter">
+        <a href="//twitter.com/share" class="twitter-share-button"  data-url="https://randommac.herokuapp.com/" data-text="{{ tweet }}" data-hashtags="マクドナルド注文ガチャ" data-lang="ja">Tweet</a>
     </div>
 </div>
 </body>

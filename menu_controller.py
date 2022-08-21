@@ -41,6 +41,18 @@ def random_select_handler(max_price):
         HM = int(now.strftime('%H%M'))
         WeekOrHoli = isBizDay(Ymd)
 
+        if 500 <= HM < 1030:
+            tweet = "現在朝マック！" + "\n"
+            tweet += "今回の1000円コースは、" + "\n" + "\n"
+        elif WeekOrHoli == 1 and 1030 <= HM < 1400:
+            tweet = "現在昼マック！" + "\n"
+            tweet += "今回の1000円コースは、" + "\n" + "\n"
+        elif 1700 <= HM <= 2359 or 0 <= HM < 500:
+            tweet = "現在夜マック！"
+            tweet += "今回の1000円コースは、" + "\n" + "\n"
+        else:
+            tweet = "今回の1000円コースは、" + "\n" + "\n"
+
         while True:
             if 500 <= HM < 1030:
                 menu = db.session.query(Menu).filter(
@@ -125,9 +137,11 @@ def random_select_handler(max_price):
             max -= int(rand.price)
             total_price += int(rand.price)
             selected.append(rand)
+            tweet += str(rand.name) + "\n"
         
+        tweet += "合計" + str(total_price) + "円" + str(total_cal) + "kcal" + "\n" + "\n"
         print(selected)
-        return render_template('index.html', date=date, WeekOrHoli=WeekOrHoli, HM=HM, selected=selected, set_menu=set_menu, total_price=total_price, total_cal=total_cal)
+        return render_template('index.html', date=date, WeekOrHoli=WeekOrHoli, HM=HM, selected=selected, set_menu=set_menu, total_price=total_price, total_cal=total_cal, tweet=tweet)
     else:
         return render_template('404.html'), 404
 
